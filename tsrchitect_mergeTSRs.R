@@ -9,7 +9,7 @@ PdGFF3  <- c("/home/ssnyde11/scratch/genomes/pulex_genome_files/PA42_v4_files/PA
 
 #this is the only tricky part of the entire script
 #change the sampleNames to sampleA-repN where A is the stage code and N is the replicate number
-tssObjectExample <- loadTSSobj(experimentTitle="DpDevel_TSS",
+PdSTRIPE <- loadTSSobj(experimentTitle="DpDevel_TSS",
   inputDir=BAMDIR, n.cores=4, isPairedBAM=TRUE,
   sampleNames=c("sample1-rep1", "sample1-rep2","sample2-rep1",
   "sample2-rep2"), replicateIDs=c(1,1,2,2)) #datasets 1-2 and 3-4 are replicates
