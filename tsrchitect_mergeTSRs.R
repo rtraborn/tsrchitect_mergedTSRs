@@ -20,12 +20,9 @@ pupstream    <- 150
 useClustDist <- 30
 TSSthreshold <- 5
 
-load(file= "PdSTRIPE_complete.RData")
-
 PdSTRIPE <- mergeSampleData(experimentName=PdSTRIPE, n.cores=1, tagCountThreshold=5)
 
 PdSTRIPE <- determineTSR(experimentName=PdSTRIPE, n.cores=1, tssSetType="merged", tssSet="all", tagCountThreshold=TSSthreshold, clustDist=useClustDist, writeTable=TRUE, mixedorder=TRUE)
-
 
 #do all samples in tsrSet
 PdSTRIPE <- addAnnotationToTSR(experimentName=PdSTRIPE, tsrSetType="merged", tsrSet=10, upstreamDist=pupstream, downstreamDist=pdownstream, feature="gene", featureColumn="ID", writeTable=TRUE)
@@ -36,3 +33,5 @@ writeTSR(experimentName=PdSTRIPE, tsrSetType="merged", tsrSet=3, tsrLabel="TSR_C
 writeTSR(experimentName=PdSTRIPE, tsrSetType="merged", tsrSet=4, tsrLabel="TSR_D", mixedorder=TRUE, fileType="bed")
 writeTSR(experimentName=PdSTRIPE, tsrSetType="merged", tsrSet=5, tsrLabel="TSR_E", mixedorder=TRUE, fileType="bed")
 writeTSR(experimentName=PdSTRIPE, tsrSetType="merged", tsrSet=6, tsrLabel="TSR_F", mixedorder=TRUE, fileType="bed")
+
+save(PdSTRIPE, file= "PdSTRIPE_complete.RData") #rename the RData file for your own benefit
