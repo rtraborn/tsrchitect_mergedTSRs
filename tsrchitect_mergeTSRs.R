@@ -20,6 +20,11 @@ pupstream    <- 150
 useClustDist <- 30
 TSSthreshold <- 5
 
+PdSTRIPE <- inputToTSS(experimentName=PdSTRIPE)
+
+PdSTRIPE <- processTSS(experimentName=PdSTRIPE, n.cores=1,
+tssSet="all", writeTable=FALSE)
+
 PdSTRIPE <- mergeSampleData(experimentName=PdSTRIPE, n.cores=1, tagCountThreshold=5)
 
 PdSTRIPE <- determineTSR(experimentName=PdSTRIPE, n.cores=1, tssSetType="replicates", tssSet="all", tagCountThreshold=TSSthreshold, clustDist=useClustDist, writeTable=TRUE, mixedorder=TRUE)
